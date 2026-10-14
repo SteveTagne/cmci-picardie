@@ -116,14 +116,15 @@ p { margin: 0 0 1em; }
 }
 
 /* ---------- Hero / carrousel ---------- */
-.hero { position: relative; min-height: 100svh; color: var(--white); overflow: hidden; background: var(--navy); }
+.hero { position: relative; min-height: 100svh; color: var(--white); overflow: hidden; background: var(--navy); display: grid; }
+/* Les diapositives s'empilent dans la même cellule : le bandeau prend la hauteur de la plus haute */
 .slide {
-  position: absolute; inset: 0;
+  grid-area: 1 / 1; position: relative;
   display: flex; align-items: center;
-  opacity: 0; transition: opacity 1s ease;
-  padding: 120px 0 90px;
+  opacity: 0; visibility: hidden; transition: opacity 1s ease, visibility 1s;
+  padding: 130px 0 90px;
 }
-.slide.is-active { opacity: 1; z-index: 1; }
+.slide.is-active { opacity: 1; visibility: visible; z-index: 1; }
 .slide__bg { position: absolute; inset: 0; z-index: -1; }
 .slide--1 .slide__bg {
   background:
