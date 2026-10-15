@@ -47,18 +47,39 @@
     restart();
   }
 
-  // Filtres de la littérature
-  var filterBtns = document.querySelectorAll('.filters button');
-  filterBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      filterBtns.forEach(function (b) { b.classList.remove('is-active'); });
-      btn.classList.add('is-active');
-      var f = btn.dataset.filter;
-      document.querySelectorAll('.book').forEach(function (book) {
-        book.style.display = (f === 'all' || book.classList.contains('book--' + f)) ? '' : 'none';
-      });
+  // Carrousel de la littérature : défilement automatique, flèches, glisser au doigt
+  var track = document.querySelector('.books-track');
+  if (track) {
+    var books = track.querySelectorAll('.book');
+    var counter = document.querySelector('[data-books-current]');
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var paused = false, autoTimer;
+    function step() { return books.length > 1 ? books[1].offsetLeft - books[0].offsetLeft : track.clientWidth; }
+    function atEnd() { return track.scrollLeft + track.clientWidth >= track.scrollWidth - 4; }
+    function move(dir) {
+      if (dir > 0 && atEnd()) track.scrollTo({ left: 0 });
+      else if (dir < 0 && track.scrollLeft <= 4) track.scrollTo({ left: track.scrollWidth });
+      else track.scrollBy({ left: dir * step() });
+    }
+    document.querySelector('[data-books-prev]').addEventListener('click', function () { move(-1); restartAuto(); });
+    document.querySelector('[data-books-next]').addEventListener('click', function () { move(1); restartAuto(); });
+    track.addEventListener('scroll', function () {
+      if (counter) counter.textContent = Math.min(books.length, Math.round(track.scrollLeft / step()) + 1);
+    }, { passive: true });
+    ['mouseenter', 'focusin', 'touchstart'].forEach(function (ev) {
+      track.addEventListener(ev, function () { paused = true; }, { passive: true });
     });
-  });
+    ['mouseleave', 'focusout'].forEach(function (ev) {
+      track.addEventListener(ev, function () { paused = false; });
+    });
+    track.addEventListener('touchend', function () { setTimeout(function () { paused = false; }, 4000); }, { passive: true });
+    function restartAuto() {
+      clearInterval(autoTimer);
+      if (reduceMotion) return;
+      autoTimer = setInterval(function () { if (!paused && !document.hidden) move(1); }, 3500);
+    }
+    restartAuto();
+  }
 
   // Apparition au défilement
   var reveals = document.querySelectorAll('.reveal');

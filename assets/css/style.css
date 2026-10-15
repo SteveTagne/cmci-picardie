@@ -242,32 +242,50 @@ p { margin: 0 0 1em; }
 .date { font-size: .82rem; font-weight: 600; color: var(--blue); }
 @media (max-width: 900px) { .teachings { grid-template-columns: 1fr; } }
 
-/* ---------- Littérature ---------- */
-.books-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 20px; }
-.filters { display: flex; gap: 8px; flex-wrap: wrap; }
-.filters button {
-  border: 1px solid var(--line); background: var(--white); border-radius: 999px;
-  padding: .5em 1.1em; font: inherit; font-size: .9rem; cursor: pointer;
+/* ---------- Littérature : carrousel « Le Chemin Chrétien » ---------- */
+.books-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 24px; }
+.books-head .lead strong { color: var(--navy); }
+.books-nav { display: flex; align-items: center; gap: 10px; }
+.books-count { font-family: var(--font-title); font-weight: 700; color: var(--muted); margin-right: 6px; min-width: 52px; text-align: right; }
+.books-arrow {
+  width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--navy);
+  background: var(--white); color: var(--navy); font-size: 1.5rem; line-height: 1; cursor: pointer;
+  transition: background .2s, color .2s;
 }
-.filters button.is-active { background: var(--navy); color: var(--white); border-color: var(--navy); }
-.books { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 22px; margin-top: 36px; }
-.book { text-align: left; }
+.books-arrow:hover { background: var(--navy); color: var(--white); }
+.books-carousel { margin-top: 40px; position: relative; }
+/* Fondu sur les bords pour suggérer le défilement */
+.books-carousel::before, .books-carousel::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: clamp(12px, calc((100% - 1180px) / 2), 90px); z-index: 2; pointer-events: none;
+}
+.books-carousel::before { left: 0; background: linear-gradient(90deg, var(--white), transparent); }
+.books-carousel::after { right: 0; background: linear-gradient(-90deg, var(--white), transparent); }
+.books-track {
+  list-style: none; margin: 0; display: flex; gap: 28px;
+  overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  padding: 14px max(16px, calc((100% - 1180px) / 2)) 26px;
+  scroll-padding-inline: max(16px, calc((100% - 1180px) / 2));
+  scrollbar-width: none;
+}
+.books-track::-webkit-scrollbar { display: none; }
+.books-track:focus-visible { outline: 3px solid var(--sun); outline-offset: -3px; }
+.book { flex: 0 0 200px; scroll-snap-align: start; }
 .book__cover {
-  aspect-ratio: 2/3; border-radius: 6px 12px 12px 6px; padding: 18px 16px;
-  display: flex; flex-direction: column; justify-content: space-between;
-  color: var(--white); box-shadow: 6px 8px 0 rgba(15,29,58,.12), inset 6px 0 0 rgba(0,0,0,.18);
-  transition: transform .25s;
+  width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 4px 10px 10px 4px;
+  box-shadow: 0 14px 28px rgba(15,29,58,.22), inset 0 0 0 1px rgba(0,0,0,.05);
+  transition: transform .3s, box-shadow .3s;
 }
-.book:hover .book__cover { transform: translateY(-6px) rotate(-1deg); }
-.book__cover small { font-size: .66rem; letter-spacing: .12em; font-weight: 700; opacity: .85; }
-.book__cover strong { font-family: var(--font-title); font-size: 1.05rem; line-height: 1.2; }
-.book__cover .num { font-family: var(--font-title); font-weight: 800; font-size: 2rem; color: var(--sun); }
-.book--chretien .book__cover { background: linear-gradient(170deg, #1a2c55, #0f1d3a); }
-.book--vainqueurs .book__cover { background: linear-gradient(170deg, #f8c75c, #e09e1c); color: var(--navy); }
-.book--vainqueurs .book__cover .num { color: var(--navy); }
-.book--vainqueurs .num { color: var(--white); }
-.book p { margin: 12px 0 0; font-weight: 600; font-size: .92rem; }
-.book span { font-size: .78rem; color: var(--muted); }
+.book:hover .book__cover { transform: translateY(-8px); box-shadow: 0 22px 36px rgba(15,29,58,.28); }
+.book__tome {
+  display: inline-block; margin-top: 16px; padding: .2em .7em; border-radius: 999px;
+  background: var(--sun-soft); color: var(--navy); font-size: .75rem; font-weight: 700; letter-spacing: .04em;
+}
+.book__title { font-size: 1rem; margin: 8px 0 0; line-height: 1.3; }
+.books-cta { margin-top: 26px; }
+@media (max-width: 560px) {
+  .book { flex-basis: 62vw; }
+  .books-nav { width: 100%; justify-content: flex-end; }
+}
 
 /* ---------- Étude biblique ---------- */
 .zoom {
