@@ -125,24 +125,25 @@ p { margin: 0 0 1em; }
   padding: 130px 0 90px;
 }
 .slide.is-active { opacity: 1; visibility: visible; z-index: 1; }
-.slide__bg { position: absolute; inset: 0; z-index: -1; }
+/* Photo de fond + voile marine à gauche pour garder le texte lisible */
+.slide__bg { position: absolute; inset: 0; z-index: -1; background-size: cover; background-position: center; }
 .slide--1 .slide__bg {
-  background:
-    radial-gradient(circle at 85% 20%, rgba(70,110,190,.55), transparent 45%),
-    radial-gradient(circle at 95% 95%, rgba(246,185,59,.28), transparent 35%),
-    radial-gradient(circle at 10% 90%, rgba(255,255,255,.10), transparent 40%),
-    linear-gradient(135deg, #0f1d3a 0%, #1a2c55 60%, #0f1d3a 100%);
+  background-image:
+    linear-gradient(90deg, rgba(15,29,58,.92) 0%, rgba(15,29,58,.7) 45%, rgba(15,29,58,.35) 100%),
+    url("../img/carrousel/js.jpeg");
+  background-position: center 30%;
 }
 .slide--2 .slide__bg {
-  background:
-    radial-gradient(circle at 15% 25%, rgba(70,110,190,.5), transparent 45%),
-    radial-gradient(circle at 90% 80%, rgba(246,185,59,.25), transparent 40%),
-    linear-gradient(160deg, #1a2c55 0%, #0f1d3a 70%);
+  background-image:
+    linear-gradient(90deg, rgba(15,29,58,.92) 0%, rgba(15,29,58,.7) 45%, rgba(15,29,58,.35) 100%),
+    url("../img/carrousel/enseignement.jpeg");
+  background-position: center 65%;
 }
 .slide--3 .slide__bg {
-  background:
-    radial-gradient(circle at 80% 80%, rgba(246,185,59,.30), transparent 45%),
-    linear-gradient(200deg, #0f1d3a 0%, #22356a 100%);
+  background-image:
+    linear-gradient(90deg, rgba(15,29,58,.92) 0%, rgba(15,29,58,.7) 45%, rgba(15,29,58,.35) 100%),
+    url("../img/carrousel/assemblee.jpeg");
+  background-position: center 40%;
 }
 /* Touches « coups de pinceau » */
 .slide__bg::after {
