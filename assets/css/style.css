@@ -94,14 +94,14 @@ p { margin: 0 0 1em; }
 @media (max-width: 560px) { .logo img { height: 60px; } }
 
 .nav { display: flex; align-items: center; gap: 26px; }
-.nav a { color: var(--white); text-decoration: none; font-weight: 500; font-size: .95rem; opacity: .9; }
+.nav a { color: var(--white); text-decoration: none; font-weight: 500; font-size: .95rem; opacity: .9; white-space: nowrap; }
 .nav a:hover { opacity: 1; color: var(--sun); }
 .nav .btn { padding: .6em 1.2em; font-size: .9rem; }
 .nav .btn--light, .nav .btn--sun { color: var(--navy); opacity: 1; }
 .nav .btn--light:hover, .nav .btn--sun:hover { color: var(--navy); }
 .burger { display: none; background: none; border: 0; color: var(--white); cursor: pointer; padding: 8px; }
 
-@media (max-width: 920px) {
+@media (max-width: 1100px) {
   .burger { display: block; }
   .nav {
     position: fixed; inset: 96px 0 auto 0;
@@ -225,23 +225,7 @@ p { margin: 0 0 1em; }
 .city span { font-size: .88rem; color: #aab3cc; }
 @media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
 
-/* ---------- Enseignements ---------- */
-.teachings { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
-.teaching { background: var(--white); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); display: flex; flex-direction: column; }
-.teaching__thumb {
-  aspect-ratio: 16/10; background: linear-gradient(135deg, var(--navy), var(--navy-2));
-  position: relative; display: grid; place-items: center; color: var(--white);
-  font-family: var(--font-title); font-weight: 800; font-size: 3.2rem;
-}
-.teaching__thumb::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: 18%; height: 28px; background: var(--sun); opacity: .9; transform: skewY(-4deg);
-}
-.teaching__thumb span { position: relative; z-index: 1; }
-.teaching__body { padding: 22px 24px 26px; }
-.teaching__body h3 { font-size: 1.15rem; margin-bottom: .3em; }
-.teaching__body p { color: var(--muted); margin: 0 0 .6em; font-size: .95rem; }
 .date { font-size: .82rem; font-weight: 600; color: var(--blue); }
-@media (max-width: 900px) { .teachings { grid-template-columns: 1fr; } }
 
 /* ---------- Littérature : carrousel « Le Chemin Chrétien » ---------- */
 .books-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 24px; }
