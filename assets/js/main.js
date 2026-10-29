@@ -94,18 +94,6 @@
     reveals.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
-  // Formulaires : si aucun service d'envoi n'est configuré (attribut action vide),
-  // on affiche simplement un message de confirmation.
-  document.querySelectorAll('form[data-demo]').forEach(function (form) {
-    form.addEventListener('submit', function (e) {
-      if (form.getAttribute('action')) return;
-      e.preventDefault();
-      form.reset();
-      var ok = form.querySelector('.form__success');
-      if (ok) ok.classList.add('is-visible');
-    });
-  });
-
   // Année du pied de page
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 })();

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inscription - CMCI Picardie</title>
-  <meta name="description" content="Inscrivez-vous aux cultes, à l'étude biblique en ligne et à la newsletter de CMCI Picardie.">
+  <meta name="description" content="Inscrivez-vous aux cultes, à l'Étude en ligne du Chemin de la Vie et à la newsletter de CMCI Picardie.">
   <link rel="icon" href="assets/img/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,49 +38,20 @@
   <div class="container">
     <span class="eyebrow">Inscription</span>
     <h1>Je m'inscris !</h1>
-    <p>Inscrivez-vous à notre prochain culte, à l'étude biblique en ligne ou à la newsletter pour recevoir toutes les actualités de l'église en Picardie.</p>
+    <p>Inscrivez-vous à notre prochain culte, à l'Étude en ligne du Chemin de la Vie ou à la newsletter pour recevoir toutes les actualités de l'église en Picardie.</p>
   </div>
 </section>
 
 <section class="section" id="inscription">
   <div class="container form-wrap">
-    <!-- Pour recevoir les inscriptions, renseigner l'attribut action (ex. Formspree) -->
-    <form class="form" action="" method="post" data-demo>
-      <div class="form__row">
-        <div class="field"><label for="i-prenom">Prénom</label><input id="i-prenom" name="prenom" required autocomplete="given-name"></div>
-        <div class="field"><label for="i-nom">Nom</label><input id="i-nom" name="nom" required autocomplete="family-name"></div>
-      </div>
-      <div class="form__row">
-        <div class="field"><label for="i-email">E-mail</label><input id="i-email" type="email" name="email" required autocomplete="email"></div>
-        <div class="field"><label for="i-ville">Ville</label><input id="i-ville" name="ville" autocomplete="address-level2" placeholder="Amiens, Beauvais, Compiègne…"></div>
-      </div>
-      <div class="field">
-        <label for="i-quoi">Je souhaite m'inscrire à</label>
-        <select id="i-quoi" name="inscription">
-          <option>Prochain culte spécial</option>
-          <option>Étude biblique en ligne (Zoom)</option>
-          <option>Une assemblée de maison</option>
-          <option>La newsletter uniquement</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="i-conn">Comment nous avez-vous connus ?</label>
-        <select id="i-conn" name="connaissance">
-          <option>Un ami / un membre</option>
-          <option>Réseaux sociaux</option>
-          <option>Recherche internet</option>
-          <option>Autre</option>
-        </select>
-      </div>
-      <label class="check"><input type="checkbox" name="newsletter" checked> Je souhaite recevoir la newsletter de CMCI Picardie.</label>
-      <label class="check"><input type="checkbox" required> J'accepte la <a href="mentions-legales.html#confidentialite">politique de confidentialité</a>.</label>
-      <button class="btn btn--sun" type="submit">Valider mon inscription</button>
-      <div class="form__success" role="status">Merci ! Votre inscription est bien enregistrée. À très bientôt !</div>
-    </form>
+    <div class="form form--tally">
+      <iframe data-tally-src="https://tally.so/embed/4aaMqb?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" loading="lazy" width="100%" height="760" frameborder="0" marginheight="0" marginwidth="0" title="Formulaire d'inscription"></iframe>
+      <noscript><p><a href="https://tally.so/r/4aaMqb">Ouvrir le formulaire</a></p></noscript>
+    </div>
     <aside>
       <div class="aside-card">
-        <h3>Étude biblique en ligne</h3>
-        <p>Chaque mercredi à 20h00 sur Zoom. Le lien vous est envoyé par e-mail après l'inscription.</p>
+        <h3>Étude en ligne du Chemin de la Vie</h3>
+        <p>Chaque dimanche à 18h00 sur Zoom. Le lien vous est envoyé par e-mail après l'inscription.</p>
       </div>
       <div class="aside-card">
         <h3>Une question ?</h3>
@@ -130,6 +101,7 @@
   </div>
 </footer>
 
+<script src="https://tally.so/widgets/embed.js" async onload="Tally.loadEmbeds()"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

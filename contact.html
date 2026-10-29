@@ -44,31 +44,10 @@
 
 <section class="section" id="contact">
   <div class="container form-wrap">
-    <!-- Pour recevoir les messages, renseigner l'attribut action (ex. Formspree) -->
-    <form class="form" action="" method="post" data-demo>
-      <div class="form__row">
-        <div class="field"><label for="c-prenom">Prénom</label><input id="c-prenom" name="prenom" required autocomplete="given-name"></div>
-        <div class="field"><label for="c-nom">Nom</label><input id="c-nom" name="nom" required autocomplete="family-name"></div>
-      </div>
-      <div class="form__row">
-        <div class="field"><label for="c-email">E-mail</label><input id="c-email" type="email" name="email" required autocomplete="email"></div>
-        <div class="field"><label for="c-tel">Téléphone (facultatif)</label><input id="c-tel" type="tel" name="telephone" autocomplete="tel"></div>
-      </div>
-      <div class="field">
-        <label for="c-sujet">Sujet</label>
-        <select id="c-sujet" name="sujet">
-          <option>Rejoindre une assemblée de maison</option>
-          <option>Demande de prière</option>
-          <option>Littérature</option>
-          <option>Étude biblique en ligne</option>
-          <option>Autre</option>
-        </select>
-      </div>
-      <div class="field"><label for="c-msg">Message</label><textarea id="c-msg" name="message" rows="6" required></textarea></div>
-      <label class="check"><input type="checkbox" required> J'accepte que mes données soient utilisées pour répondre à ma demande, conformément à la <a href="mentions-legales.html#confidentialite">politique de confidentialité</a>.</label>
-      <button class="btn btn--navy" type="submit">Envoyer le message</button>
-      <div class="form__success" role="status">Merci ! Votre message a bien été envoyé. Nous revenons vers vous très vite.</div>
-    </form>
+    <div class="form form--tally">
+      <iframe data-tally-src="https://tally.so/embed/vXXlbA?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" loading="lazy" width="100%" height="820" frameborder="0" marginheight="0" marginwidth="0" title="Formulaire de contact"></iframe>
+      <noscript><p><a href="https://tally.so/r/vXXlbA">Ouvrir le formulaire</a></p></noscript>
+    </div>
     <aside>
       <div class="aside-card">
         <h3>Nos coordonnées</h3>
@@ -124,6 +103,7 @@
   </div>
 </footer>
 
+<script src="https://tally.so/widgets/embed.js" async onload="Tally.loadEmbeds()"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

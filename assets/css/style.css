@@ -374,10 +374,7 @@ p { margin: 0 0 1em; }
 .field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--sun); border-color: var(--sun-dark); background: var(--white); }
 .check { display: flex; gap: 10px; align-items: flex-start; font-size: .9rem; color: var(--muted); margin-bottom: 20px; }
 .check input { margin-top: 4px; }
-.form__success {
-  display: none; padding: 16px 18px; border-radius: 12px; background: #e9f7ee; color: #1d6b3a; font-weight: 600; margin-top: 16px;
-}
-.form__success.is-visible { display: block; }
+.form--tally iframe { display: block; border: 0; }
 .aside-card { background: var(--navy); color: #d6dcec; border-radius: var(--radius); padding: 30px; margin-bottom: 20px; }
 .aside-card h3 { color: var(--white); }
 .aside-card a { color: var(--sun); text-decoration: none; }
